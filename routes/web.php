@@ -6,8 +6,15 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 
 Route::get('/', function () {
-
-    $pdf = Pdf::loadView('pdf.invoice');
-    return $pdf->download('invoice.pdf');
-    
+    return view('index');
 });
+
+
+Route::get('/gerador', 'PdfController@generatePdf')->name('gerador');
+
+// Route::get('/gerador', function () {
+
+//     $pdf = Pdf::loadView('welcome');
+//     return $pdf->download('invoice.pdf');
+
+// });
