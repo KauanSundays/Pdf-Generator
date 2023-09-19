@@ -12,9 +12,9 @@ Route::get('/', function () {
 
 Route::get('/gerador', 'PdfController@generatePdf')->name('gerador');
 
-// Route::get('/gerador', function () {
+ Route::get('/gerador', function () {
 
-//     $pdf = Pdf::loadView('welcome');
-//     return $pdf->download('invoice.pdf');
+     $pdf = Pdf::loadView('welcome');
+     return $pdf->download('invoice.pdf');
 
-// });
+ });
