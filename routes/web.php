@@ -2,21 +2,12 @@
 
 use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
+use Barryvdh\DomPDF\Facade\Pdf;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+$pdf = Pdf::loadView('pdf.invoice', $data);
+return $pdf->download('invoice.pdf');
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::get('/generate-pdf', [PdfController::class,'generatePdf'])->name('generate-pdf');
+    $pdf = Pdf::loadView('pdf.invoice', $data);
+    return $pdf->download('invoice.pdf');
+})
