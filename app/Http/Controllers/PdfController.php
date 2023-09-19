@@ -12,8 +12,9 @@ class PdfController extends Controller
 {
     public function generatePdf() 
     {
-        $data['name'] = "Kauan
-        ";
+        $data['name'] = "Kauan";
+        $data['idade'] = "toma ta";
+
         $pdf = Pdf::loadView('welcome', $data);
 
         return $pdf->stream('invoice.pdf');
