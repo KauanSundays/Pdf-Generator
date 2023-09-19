@@ -89,12 +89,13 @@
             @endforeach
         </tbody>
     </table>
-    <div class="info-container">
+    <div class="info-container" style="font-size: 15">
         <div class="info-box">
             <h2>Total:</h2>
             <p>Subtotal: R$ {{ $subtotal }}</p>
             <!-- Adicione informações de impostos, descontos, etc. aqui -->
-            <p>Total Geral: R$ {{ $total }}</p>
+            <p>Descontos: 10% - <span style="color: red;">(R$: {{ number_format($desconto, 2, ',', '.') }})</span></p>
+            <p>Total Geral: <span style="color: green;">R$ {{ $total }}</span></p>
         </div>
     </div>
 </body>

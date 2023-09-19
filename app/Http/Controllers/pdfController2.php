@@ -39,7 +39,8 @@ class PdfController2 extends Controller
 
         // Cálculo do subtotal e total
         $subtotal = array_sum(array_column($items, 'totalPrice'));
-        $total = $subtotal; // Adicione impostos, descontos, etc., se necessário
+        $desconto = $subtotal * 10 / 100;
+        $total = $subtotal - $desconto; // Adicione impostos, descontos, etc., se necessário
 
         // Carregar a visualização PDF com os dados
         $data = compact(
@@ -50,6 +51,7 @@ class PdfController2 extends Controller
             'clientId',
             'items',
             'subtotal',
+            'desconto',
             'total'
         );
 
